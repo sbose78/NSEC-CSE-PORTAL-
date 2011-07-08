@@ -1,0 +1,16 @@
+<script type='text/javascript'>
+function notEmpty(elem, helperMsg){
+	if(elem.value.length == 0){
+		alert(helperMsg);
+		elem.focus();
+		return 2;
+	}
+	return 1;
+}
+</script>
+<form>
+Required Field: <input type='text' ID='req1'/>
+<input type='button' 
+	onclick="notEmpty(document.getElementById('req1'), 'Please Enter a Value')"
+	value='Check Field' />
+</form

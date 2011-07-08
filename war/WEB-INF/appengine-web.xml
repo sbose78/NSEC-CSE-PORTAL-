@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <application>nseccse3</application>
+    <version>1</version>
+	
+	<static-files>
+  <include path="/favicon.ico" />
+  <include path="/SEARCH.html" />
+<include path="/IBM-TGMC-FB.html" />
+<include path="/**.html" />
+<include path="/amit1.html" />
+  <include path="/google9f5b226f51aab783.html" />
+  <include path="/enterEmailFormQueue.html" />
+  <include path="/aba.jpg" />
+  
+  <include path="/images/**.jpg" />
+  <include path="/Results/**.htm" />
+  <include path="/images/fin1.JPG" />
+   <include path="/images/**.jpeg" />
+  <include path="/images/**.gif" />
+  <include path="/images/**.png" />
+   <include path="/**.htm" />
+  <include path="/style.css" />
+  
+</static-files>
+
+<inbound-services>
+    <service>xmpp_message</service>
+  </inbound-services>
+
+
+
+
+    <system-properties>
+        <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+    </system-properties>
+</appengine-web-app>

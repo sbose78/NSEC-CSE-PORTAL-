@@ -1,0 +1,282 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18477518-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="javax.jdo.PersistenceManager" %>
+<%@ page import="com.google.appengine.api.users.User" %>
+<%@ page import="com.google.appengine.api.users.UserService" %>
+<%@ page import="com.google.appengine.api.users.UserServiceFactory" %>
+<%@ page import="NSEC.Data" %>
+<%@ page import="NSEC.PMF" %>
+<%@ page import="java.lang.*" %>
+<%@ page import="com.google.appengine.api.labs.taskqueue.Queue"%>
+<%@ page import="com.google.appengine.api.labs.taskqueue.QueueFactory"%>
+
+<%@ page import="static com.google.appengine.api.labs.taskqueue.TaskOptions.Builder.*"%>
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #660000;
+}
+body,td,th {
+	color: #330000;
+}
+body {
+	background-color: #FFFFFF;
+}
+.style2 {color: #660000}
+.style3 {
+	color: #660099;
+	font-weight: bold;
+}
+.style4 {color: #000000}
+.style6 {font-size: 18px}
+.style8 {font-size: 18px; font-weight: bold; }
+-->
+</style></head>
+
+
+
+    
+    <%
+		UserService userService = UserServiceFactory.getUserService();
+		User user = userService.getCurrentUser();   
+	%>
+    
+    <%
+if( user !=null)
+{
+	 Queue queue = QueueFactory.getDefaultQueue(); 
+	 queue.add(url("/email-queue-send.jsp").param("emailid","sbose78@gmail.com").param("subject","NSEC CSE PORTAL").param("content",user.getEmail()+" SIGNED IN"));
+ 	  
+	    String s= user.getNickname();
+
+						
+		
+			
+%>
+
+
+
+
+
+<body>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <h2 align="justify"><span class="style1"> NETAJI SUBHASH ENGINEERING COLLEGE</span></h2>
+        </blockquote>
+      </blockquote>
+      <p align="justify" class="style2"><strong><u><em>DEPARTMENT OF COMPUTER SCIENCE &amp; ENGINEERING and INFORMATION TECHNOLOGY</em></u></strong></p>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<p align="justify" class="style2">Aloha , <strong><%= user.getNickname() %></strong>!</span><a  href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a></p>
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <blockquote>
+                <blockquote>
+                  <blockquote>
+                    <blockquote>
+                      <blockquote>
+                        <blockquote>
+                          <blockquote>
+                            <p align="justify" class="style4">&nbsp;</p>
+                          </blockquote>
+                        </blockquote>
+                      </blockquote>
+                    </blockquote>
+                  </blockquote>
+                </blockquote>
+              </blockquote>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+<table width="999" height="35" border="0.005">
+  <tr>
+    <th scope="col"><a href="/SIGNIN.jsp">HOME</a></th>
+    <th scope="col"><a href="/selectSub.jsp">STUDY RESOURCES </a></th>
+    <th scope="col">FORUM</th>
+    <th scope="col"><a href="/IBM-TGMC-FB.html">IBM-TGMC 2010</a> </th>
+    <th scope="col"><a href="/submitFile2.jsp">SHARE A <em>LINK</em></a></th>
+    <th scope="col"><a href="/enterEmailForm.jsp">SUBMIT EMAIL ADDRESS TO DATABSE </a></th>
+    <th scope="col">ABOUT</th>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="978" height="356" border="0.005">
+  <tr>
+    <th width="536" height="42">TO RECIEVE NOTIFICATIONS </th>
+    <td width="432"><blockquote>
+      <blockquote>
+        <p>        <strong>DATABASE ENTRY </strong></p>
+        </blockquote>
+    </blockquote></td>
+  </tr>
+  <tr>
+    <td height="72"><ul>
+      <li>ADD THE ChatBOT <strong>nseccse3@appspot.com </strong>to your GTalk contact list. You will recieve updates only if you are online . ( Only Offline and Invisible modes not supported) </li>
+      </ul>      
+      <ul>
+        <li>Subscribe to the mailing list: 
+      </li>
+      </ul>
+      <blockquote>
+      <p> <a href="/enterEmailForm.jsp">SUBMIT  EMAIL ADDRESS TO DATABASE </a></p>
+    </blockquote>      <p>&nbsp;  </p></td>
+    <td><blockquote>
+      <form id="form1" name="form1" method="post" action="/editProfile.jsp">
+        <p>
+          <input type="text" name="textfield" />
+          </p>
+        <p>( WBUT ROLL NUMBER here)      </p>
+        <p>
+          <input type="submit" name="Submit" value="GO..GO..GO" />
+</p>
+      </form>
+      <p>&nbsp;</p>
+    </blockquote>      </td>
+  </tr>
+  <tr>
+    <td height="31"><blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <p><strong>STUDY RESOURCES </strong></p>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote></td>
+    <td><blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <p>&nbsp;</p>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote></td>
+  </tr>
+  
+  <tr>
+    <td height="100"><ul>
+      <li class="style6">External Links to lecture notes from various colleges &amp; NSEC.
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <p>&nbsp;</p>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </li>
+      
+        <li class="style6"><strong>Contribute a link. <a href="/submitFile2.jsp">Click here</a></strong></li>
+    </ul>      
+    <p>&nbsp;</p></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+
+
+<%
+
+    if(s.equals("sbose78"))  {  
+%>
+
+ <br> 
+	    HIII.. ADMINISTRATOR! 
+		  
+	    <br>
+	    <br> 	
+		  
+		  <a href="/DB.jsp">CLICK HERE TO VISIT DATABASE</a><BR>
+		  <a href="/SEARCH.html">USE THE SEARCH APPLICATION</a><BR>
+		  <a href="/email1.jsp">USE THE GROUP EMAIL APPLICATION</a><BR>
+		  <br>
+		  <br> 
+		  <a href="/submitFile.jsp">USE THE SUBMIT-FILE APPLICATION</a><br>
+		  <br>
+		  
+		  <a href="/enterEmailForm.jsp">SUBMIT EMAIL ADDRESS TO DATABASE</a><BR>
+		  <a href="/typeChat.jsp">SEND CHAT MESSAGE TO THE CSE COMMUNITY</a><BR>
+		  <a href="/smsMail.jsp">SEND SMS</a><BR>
+		  <a href="/submitPost.jsp">SUBMIT POST</a><BR>
+<%
+		  
+	}		
+}
+else{
+%>
+
+<p align="center" class="style2">Hello!
+          <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">SIGN IN USING YOUR GOOGLE ACCOUNT</a> </p>
+		  <br>
+		    <input align="center" name="OID" type="image" src="/images/oid.png" height="350" width="600"  /><br>
+
+
+
+<blockquote>
+  <blockquote>
+    <blockquote>
+      <blockquote>
+        <blockquote>
+          <blockquote>
+            <blockquote>
+              <blockquote>
+                <blockquote>
+                  <p class="style3">CREATIVE COMMONS LICENSE </p>
+                </blockquote>
+              </blockquote>
+            </blockquote>
+          </blockquote>
+        </blockquote>
+      </blockquote>
+    </blockquote>
+  </blockquote>
+</blockquote>
+</body>
+</html>
